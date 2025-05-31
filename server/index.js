@@ -42,7 +42,11 @@ const redisPublisher = redisClient.duplicate();
 
 app.get('/', (req, res) => {
   //res.send('Hi. <br>' + keys.redisHost + '<br>' + keys.pgHost);
-  res.send("Hi. <br>Welcome to the Multi-Container App!<br>Check the endpoints for more information.");
+  res.send("Hi. <br>Welcome to the Multi-Container App!<br>Check the endpoints for more information." + 
+    "Redis Host: " + keys.redisHost + "<br>" + "Redis Port: " + keys.redisPort + "<br>" +
+    "Postgres Host: " + keys.pgHost + "<br>" + "Postgres Port: " + keys.pgPort + "<br>" +
+    "Postgres User: " + keys.pgUser + "<br>" + "Postgres Database: " + keys.pgDatabase + "<br>" +
+    "Postgres Password: " + keys.pgPassword);
 });
 
 app.get('/values/all', async (req, res) => {
