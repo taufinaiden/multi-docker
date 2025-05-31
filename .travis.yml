@@ -10,16 +10,16 @@ script:
   - docker run -e CI=true complex/react-test npm run test
 
 after_success:
-  - docker build -t complex/multi-client ./client
-  - docker build -t complex/multi-nginx ./nginx
-  - docker build -t complex/multi-server ./server
-  - docker build -t complex/multi-worker ./worker
+  - docker build -t taufinaiden/multi-client ./client
+  - docker build -t taufinaiden/multi-nginx ./nginx
+  - docker build -t taufinaiden/multi-server ./server
+  - docker build -t taufinaiden/multi-worker ./worker
 
   # log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   # push the images to docker hub
-  - docker push complex/multi-client
-  - docker push complex/multi-nginx
-  - docker push complex/multi-server
-  - docker push complex/multi-worker
+  - docker push taufinaiden/multi-client
+  - docker push taufinaiden/multi-nginx
+  - docker push taufinaiden/multi-server
+  - docker push taufinaiden/multi-worker
