@@ -13,4 +13,13 @@ after_success:
   - docker build -t complex/multi-client ./client
   - docker build -t complex/multi-nginx ./nginx
   - docker build -t complex/multi-server ./server
-  - docker build -t complex/multi-workder ./workder
+  - docker build -t complex/multi-worker ./worker
+
+  # log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+  # push the images to docker hub
+  - docker push complex/multi-client
+  - docker push complex/multi-nginx
+  - docker push complex/multi-server
+  - docker push complex/multi-worker
