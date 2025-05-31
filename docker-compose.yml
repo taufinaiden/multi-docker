@@ -1,10 +1,10 @@
 services:
   client:
-    image: 'rallycoding/multi-client'
+    image: 'taufinrusli/multi-client'
     mem_limit: 128m
     hostname: client
   api:
-    image: 'rallycoding/multi-server'
+    image: 'taufinrusli/multi-server'
     mem_limit: 128m
     hostname: api
     environment:
@@ -16,14 +16,14 @@ services:
       - PGPASSWORD=$PGPASSWORD
       - PGPORT=$PGPORT
   worker:
-    image: 'rallycoding/multi-worker'
+    image: 'taufinrusli/multi-worker'
     mem_limit: 128m
     hostname: worker
     environment:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
   nginx:
-    image: 'rallycoding/multi-nginx'
+    image: 'taufinrusli/multi-nginx'
     mem_limit: 128m
     hostname: nginx
     ports:
