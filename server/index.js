@@ -41,7 +41,8 @@ const redisPublisher = redisClient.duplicate();
 // Express route handlers
 
 app.get('/', (req, res) => {
-  res.send('Hi. <br>' + keys.redisHost + '<br>' + keys.pgHost);
+  //res.send('Hi. <br>' + keys.redisHost + '<br>' + keys.pgHost);
+  res.send("Hi. <br>Welcome to the Multi-Container App!<br>Check the endpoints for more information.");
 });
 
 app.get('/values/all', async (req, res) => {
