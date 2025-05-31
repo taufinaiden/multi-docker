@@ -4,22 +4,22 @@ services:
   - docker
 
 before_install:
-  - docker build -t complex/react-test -f client/Dockerfile.dev ./client
+  - docker build -t taufinrusli/react-test -f client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true complex/react-test npm run test
+  - docker run -e CI=true taufinrusli/react-test npm run test
 
 after_success:
-  - docker build -t taufinaiden/multi-client ./client
-  - docker build -t taufinaiden/multi-nginx ./nginx
-  - docker build -t taufinaiden/multi-server ./server
-  - docker build -t taufinaiden/multi-worker ./worker
+  - docker build -t taufinrusli/multi-client ./client
+  - docker build -t taufinrusli/multi-nginx ./nginx
+  - docker build -t taufinrusli/multi-server ./server
+  - docker build -t taufinrusli/multi-worker ./worker
 
   # log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   # push the images to docker hub
-  - docker push taufinaiden/multi-client
-  - docker push taufinaiden/multi-nginx
-  - docker push taufinaiden/multi-server
-  - docker push taufinaiden/multi-worker
+  - docker push taufinrusli/multi-client
+  - docker push taufinrusli/multi-nginx
+  - docker push taufinrusli/multi-server
+  - docker push taufinrusli/multi-worker
